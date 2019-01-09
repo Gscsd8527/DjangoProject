@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ t1 }}
+<hr>
+{#{{ t1| escape }} 防止转义#}
+{{ t1| safe }}  {#转义#}
+<hr>
+{% autoescape off %}
+    {{ t1 }}
+{% endautoescape %}
+字面值：<br>
+{#default: 后面不能有空格，有的话那么就在最前面加_和加括号#}
+{{ t2|default:'<h1>abc</h1>'}}
+{#{{ t2|default:_('<h1>abc</h1>') }}#}
+
+<br>
+手动转义： {{ t2|default:'&lt;h1&gt;abc&lt;/h1&gt;'}}
+
+</body>
+</html>

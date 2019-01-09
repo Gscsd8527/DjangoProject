@@ -1,0 +1,9 @@
+{% extends 'test2/base_user.html' %}
+{% block head %}
+    <script>alert('123')</script>
+{% endblock head %}
+
+{% block user_content %}
+    {{ name }}
+    <h1>用户中心1</h1>
+{% endblock user_content %}

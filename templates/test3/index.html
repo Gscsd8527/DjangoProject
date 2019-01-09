@@ -1,0 +1,14 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<img src="/static/test3/a.jpg" width="50" height="80">
+<br>
+也可使用下面这种方法，使用动态添加地址，但要先加载static目录
+<img src="{% static 'test3/a.jpg' %}" width="50" height="80">
+</body>
+</html>

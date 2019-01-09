@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#url正向解析#}
+{#<a href="/test2/123">显示</a>#}
+{#url反向解析， test2表示namespace，show表示name, 123表示show需要接收的参数#}
+<a href="{% url 'test2:show' 123 %}">显示</a>
+<br>
+{{ hero.hname }}
+{{ hero.showname }}
+<hr>
+{% for hero in list %}
+    {{ hero.showname }}
+    {% empty %}
+       <li>什么也没找到<li>
+{% endfor %}
+</body>
+</html>

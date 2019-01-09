@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for hero in page %}
+        <li>{{ hero.uname }}</li>
+    {% endfor %}
+</ul>
+<hr>
+{#{% for index in page.paginator.page_range %}#}
+{#    {% if index == page.number %}#}
+{#        {{ index }}#}
+{#        {% else %}#}
+{#    <a href="/test3/herolist/{{ index }}">{{ index }}</a>#}
+{#    {% endif %}#}
+{#{% endfor %}#}
+
+{% for index in page.paginator.page_range %}
+    <a href="/test3/herolist/{{ index }}">{{ index }}</a>
+{% endfor %}
+</body>
+</html>
