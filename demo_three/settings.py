@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'test1',
     'test2',
     'test3',
+    'test4',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +136,25 @@ STATICFILES_DIRS = [
 ]
 # 配置media，以后上传的图片都放到这个文件夹下
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media/')
+
+
+# celery
+# 千峰配置
+import djcelery
+# 初始化队列
+djcelery.setup_loader()
+# 设置代理             密码    ip     端口 数据库
+BROKER_URL = 'redis://123456@127.0.0.1:6379/0'
+                  # 项目名 引入tasks文件
+CELERY_IMPORTS = ('test4.tasks')
+
+
+# 网络配置
+# import djcelery
+# djcelery.setup_loader()
+#
+# BROKER_URL = 'redis://123456@127.0.0.1:6379/0'
+# CELERY_RESULT_BACKEND = 'redis://123456@127.0.0.1:6379/0'
+# CELERY_ACCEPT_CONTENT = ['json']
+# CELERY_TASK_SERIALIZER = 'json'
+# CELERY_RESULT_SERIALIZER = 'json'

@@ -24,4 +24,5 @@ urlpatterns = [
     path('test/', include('test1.urls', namespace='test')),
     path('test2/', include('test2.urls', namespace='test2')),
     path('test3/', include('test3.urls', namespace='test3')),
+    path('test4/', include('test4.urls', namespace='test4')),
 ]

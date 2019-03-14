@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生分页显示</title>
+</head>
+<body>
+<ul>
+    {% for stu in students %}
+        <li>
+           {{ stu.id }} --- {{ stu.name }} ---  {{ stu.sex }} --- {{ stu.age }}
+        </li>
+    {% endfor %}
+</ul>
+   <ul>
+{#       循环得到页码#}
+       {% for index in students.paginator.page_range %}
+{#           判断是否是当前页，如果是的话就不能再点击了，没有a标签的点击效果了#}
+           {% if index == students.number %}
+               <li>{{ index }}</li>
+           {% else %}
+           <li>
+               <a href="/test4/fy/{{ index }}/">{{ index }}</a>
+           </li>
+           {% endif %}
+       {% endfor %}
+   </ul>
+</body>
+</html>
