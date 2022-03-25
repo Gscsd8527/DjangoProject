@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<div>{{ msg }}</div>
+<form action="{% url 'user:login_1' %}" method="post">
+    {% csrf_token %}
+    用户：{{ form.username }} <span>{{ form.username.errors.0 }}</span> <br>
+    密码：{{ form.password }} <span>{{ form.password.errors.0 }}</span><br>
+    验证码：{{ form.captcha }} <span>{{ form.captcha.errors.0 }}</span><br>
+    <input type="submit">
+</form>
+</body>
+</html>
+<script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.min.js"></script>
+<script>
+     //点击刷新验证码
+    $(function () {
+        $('.captcha').css({
+            'cursor': 'pointer'
+        });
+        // ajax刷新
+        $('.captcha').click(function () {
+            console.log('click');
+            $.get("{% url 'captcha-refresh' %}",
+                function (result) {
+                    $('.captcha').attr('src', result['image_url']);
+                    $('#id_captcha_0').val(result['key'])
+                });
+        });
+    })
+</script>
